@@ -1,0 +1,104 @@
+﻿<Window x:Class="SlideCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SlideCreator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280" Icon="json_file_Xf5_icon.ico">
+    <Grid Height="550" Width="1100">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="120*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+
+            <Label x:Name="CategoryBlock" HorizontalAlignment="Center" Margin="8">
+                <TextBlock TextWrapping="WrapWithOverflow" FontWeight="Bold" FontSize="16">
+                    Add New powerpoint Path
+                </TextBlock>
+            </Label>
+
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+
+            <Label x:Name="HelpLabel" HorizontalAlignment="Center" Margin="8">
+                <TextBlock TextWrapping="WrapWithOverflow">
+                    Folder Path
+                </TextBlock>
+            </Label>
+            <Label x:Name="CompName" HorizontalAlignment="Center" Margin="7">
+                <TextBlock TextWrapping="WrapWithOverflow">
+                    FLADataZip
+                </TextBlock>
+            </Label>
+
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBox x:Name="FolderPathPPTX" Width="300" Margin="10"></TextBox>
+            <TextBox x:Name="ZipFilePath" Width="300" Margin="10"></TextBox>
+            <Button
+                x:Name="CreateSlides"
+                Width="200px"
+                Height="40px"
+                Cursor="Hand"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="MainClickButton"
+                Margin="10"
+                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#FFDADADA">
+                Create Slides
+            </Button>
+
+            <ProgressBar Height="50" Minimum="0" Maximum="100" Name="SlideProgressBar" />
+            <Button
+                x:Name="CancelBtn"
+                Width="100px"
+                Height="30px"
+                Cursor="Hand"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="cancelOperation_Click"
+                Margin="10"
+                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#FFDADADA">
+                Cancel
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="1">
+            <Button
+                x:Name="SelectFolder"
+                Width="100px"
+                Height="25px"
+                Cursor="Hand"
+                HorizontalAlignment="left"
+                VerticalAlignment="Center"
+                Click="SelectFolderButton"
+                Margin="0,10,0,0"
+                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#FFDADADA" Content="Select Folder"/>
+            <Button
+                x:Name="SelectZipFile"
+                Width="100px"
+                Height="25px"
+                Cursor="Hand"
+                HorizontalAlignment="left"
+                VerticalAlignment="Center"
+                Click="SelectZipButton"
+                Margin="0,10,0,0"
+                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="#FFDADADA" Content="Select Zip File"/>
+
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <TextBox  x:Name="resultsWindow" Margin="0,10" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          ScrollViewer.CanContentScroll="True" Height="244"/>
+        </StackPanel>
+    </Grid>
+</Window>
